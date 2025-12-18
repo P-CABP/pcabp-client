@@ -19,6 +19,7 @@ yarn.lock
 
 # Git
 .git/
+.github/
 
 # IDE/Editor files
 .vscode/
