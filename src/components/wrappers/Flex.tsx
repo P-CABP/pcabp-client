@@ -7,7 +7,11 @@ interface FlexProps extends StackProps {
 }
 
 const Flex = ({ children, ...stackProps }: FlexProps) => {
-  return <Stack {...stackProps}>{children}</Stack>;
+  return (
+    <Stack direction="row" {...stackProps}>
+      {children}
+    </Stack>
+  );
 };
 
 export default Flex;
