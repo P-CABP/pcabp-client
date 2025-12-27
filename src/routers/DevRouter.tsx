@@ -4,6 +4,7 @@ import DevGuard from "@/components/guards/DevGuard";
 import DevLayout from "@/components/layouts/DevLayout";
 import DevPage from "@/pages/dev/DevPage";
 import DevPalettePage from "@/pages/dev/palette/DevPalettePage";
+import DevTypographyPage from "@/pages/dev/typography/DevTypographyPage";
 
 const DevRouter: RouteObject[] = [
   {
@@ -20,6 +21,10 @@ const DevRouter: RouteObject[] = [
           {
             path: "palette",
             element: <DevPalettePage />,
+          },
+          {
+            path: "typography",
+            element: <DevTypographyPage />,
           },
         ],
       },

@@ -5,6 +5,7 @@ const DevPage = () => {
   return (
     <Stack rowGap={1}>
       <NavLink to="/dev/palette">Palette</NavLink>
+      <NavLink to="/dev/typography">Typography</NavLink>
     </Stack>
   );
 };
