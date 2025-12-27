@@ -6,6 +6,10 @@ import AppRouter from "@/routers/AppRouter";
 
 import "@/locales/i18n";
 
+import "@/assets/styles/font.css";
+import "@/assets/styles/global.css";
+import "@/assets/styles/init.css";
+
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
