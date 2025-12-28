@@ -1,15 +1,15 @@
 import { Box, styled } from "@mui/material";
 import { Outlet } from "react-router";
 
-const GlobalLayout = () => {
+const Layout = () => {
   return (
-    <StyledGlobalLayout className="global-layout">
+    <StyledLayout className="layout">
       <Outlet />
-    </StyledGlobalLayout>
+    </StyledLayout>
   );
 };
 
-const StyledGlobalLayout = styled(Box)`
+const StyledLayout = styled(Box)`
   width: 100%;
   min-height: 100vh;
 
@@ -19,4 +19,4 @@ const StyledGlobalLayout = styled(Box)`
   align-items: flex-start;
 `;
 
-export default GlobalLayout;
+export default Layout;
