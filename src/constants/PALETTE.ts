@@ -1,6 +1,7 @@
 export const MAIN = {
   primary: "#6B7FED",
   secondary: "#ED9F6B",
+  trinary: "#5A6EDF",
 } as const;
 
 export const GRAYSCALE = {
