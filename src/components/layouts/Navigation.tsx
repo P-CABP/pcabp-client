@@ -2,43 +2,18 @@ import { Stack, styled, Typography } from "@mui/material";
 import { NavLink } from "react-router";
 
 import Flex from "@/components/wrappers/Flex";
-
-const MENU_ITEM_MOCK = [
-  {
-    name: "홈",
-    path: "/",
-  },
-  {
-    name: "배송조회",
-    path: "/delivery-lookup",
-  },
-  {
-    name: "주문조회",
-    path: "/order-lookup",
-  },
-  {
-    name: "취소조회",
-    path: "/cancel-lookup",
-  },
-  {
-    name: "반품조회",
-    path: "/return-lookup",
-  },
-  {
-    name: "교환조회",
-    path: "/exchange-lookup",
-  },
-  {
-    name: "환불조회",
-    path: "/refund-lookup",
-  },
-];
+import { NAVIGATION } from "@/constants/NAVIGATION";
+import { useMode } from "@/stores/mode-store";
 
 const Navigation = () => {
+  const mode = useMode();
+
+  const navigation = NAVIGATION[mode];
+
   return (
     <StyledNavigation className="navigation">
       <StyledNavigationGroup>
-        {MENU_ITEM_MOCK.map((item) => (
+        {navigation.map((item) => (
           <StyledNavigationLink key={item.path} to={item.path}>
             <Typography size="16bs" weight="semi-bold">
               {item.name}
