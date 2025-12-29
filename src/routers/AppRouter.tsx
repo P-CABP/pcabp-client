@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router";
 
 import Layout from "@/components/layouts/Layout";
-import HomePage from "@/pages/HomePage";
 import AdminRouter from "@/routers/AdminRouter";
 import DevRouter from "@/routers/DevRouter";
+import FranchiseRouter from "@/routers/FranchiseRouter";
+import StoreRouter from "@/routers/StoreRouter";
 
 const AppRouter = createBrowserRouter([
   {
@@ -12,12 +13,10 @@ const AppRouter = createBrowserRouter([
       {
         element: <Layout />,
         children: [
-          {
-            path: "/",
-            element: <HomePage />,
-          },
           ...AdminRouter,
           ...DevRouter,
+          ...FranchiseRouter,
+          ...StoreRouter,
         ],
       },
     ],

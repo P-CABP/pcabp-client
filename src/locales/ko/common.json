@@ -1,5 +1,11 @@
 {
   "label": {
+    "title": {
+      "ADMIN": "관리자",
+      "FRANCHISE": "가맹점",
+      "STORE": "스토어",
+      "DEVELOP": "개발"
+    },
     "action": {
       "LOGIN": "로그인"
     }
