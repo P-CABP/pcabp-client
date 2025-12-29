@@ -1,9 +1,13 @@
-import { Box, styled } from "@mui/material";
+import { Box, Divider, styled } from "@mui/material";
 import { Outlet } from "react-router";
+
+import Header from "@/components/layouts/Header";
 
 const Layout = () => {
   return (
     <StyledLayout className="layout">
+      <Header />
+      <StyledDivider />
       <Outlet />
     </StyledLayout>
   );
@@ -16,7 +20,15 @@ const StyledLayout = styled(Box)`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
+
+  background-color: ${({ theme }) => theme.palette.grayscale.white};
+`;
+
+const StyledDivider = styled(Divider)`
+  width: 100%;
+
+  margin-bottom: 24px;
 `;
 
 export default Layout;
