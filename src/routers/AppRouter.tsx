@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router";
 import Layout from "@/components/layouts/Layout";
 import AdminRouter from "@/routers/AdminRouter";
 import DevRouter from "@/routers/DevRouter";
-import FranchiseRouter from "@/routers/FranchiseRouter";
+import ShopRouter from "@/routers/ShopRouter";
 import StoreRouter from "@/routers/StoreRouter";
 
 const AppRouter = createBrowserRouter([
@@ -12,12 +12,7 @@ const AppRouter = createBrowserRouter([
     children: [
       {
         element: <Layout />,
-        children: [
-          ...AdminRouter,
-          ...DevRouter,
-          ...FranchiseRouter,
-          ...StoreRouter,
-        ],
+        children: [...AdminRouter, ...DevRouter, ...StoreRouter, ...ShopRouter],
       },
     ],
   },

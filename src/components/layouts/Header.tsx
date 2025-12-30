@@ -1,14 +1,14 @@
 import { Stack, styled } from "@mui/material";
 
 import Navigation from "@/components/layouts/Navigation";
-import SearchBar from "@/components/layouts/SearchBar";
+import TitleBar from "@/components/layouts/TitleBar";
 import UtilityBar from "@/components/layouts/UtilityBar";
 
 const Header = () => {
   return (
     <StyledHeader className="header">
+      <TitleBar />
       <UtilityBar />
-      <SearchBar />
       <Navigation />
     </StyledHeader>
   );

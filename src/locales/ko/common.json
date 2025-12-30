@@ -2,12 +2,15 @@
   "label": {
     "title": {
       "ADMIN": "관리자",
-      "FRANCHISE": "가맹점",
       "STORE": "스토어",
-      "DEVELOP": "개발"
+      "SHOP": "쇼핑몰",
+      "DEVELOP": "개발",
+      "HOME": "홈",
+      "USER": "사용자"
     },
     "action": {
-      "LOGIN": "로그인"
+      "LOGIN": "로그인",
+      "LOGOUT": "로그아웃"
     }
   }
 }

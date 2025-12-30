@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-type Mode = "ADMIN" | "FRANCHISE" | "STORE" | "DEVELOP";
+export type Mode = "ADMIN" | "STORE" | "SHOP" | "DEVELOP";
 
 type ModeStore = {
   mode: Mode;
@@ -8,7 +8,7 @@ type ModeStore = {
 };
 
 const useModeStore = create<ModeStore>((set) => ({
-  mode: "STORE",
+  mode: "SHOP",
   setMode: (mode) => set({ mode }),
 }));
 

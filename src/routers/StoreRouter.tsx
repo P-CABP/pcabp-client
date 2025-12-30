@@ -1,13 +1,12 @@
 import { RouteObject } from "react-router";
 
-import HomePage from "@/pages/HomePage";
 import useModeStore from "@/stores/mode-store";
 
 const StoreRouter: RouteObject[] = [
   {
-    path: "/",
+    path: "store",
     loader: () => useModeStore.getState().setMode("STORE"),
-    element: <HomePage />,
+    element: <>BO</>,
   },
 ];
 

@@ -9,18 +9,18 @@ export const ADMIN = [
   },
 ] as const;
 
-export const FRANCHISE = [
+export const STORE = [
   {
     name: "가맹점",
-    path: "/franchise",
+    path: "/stores",
   },
   {
     name: "상품",
-    path: "/franchise/products",
+    path: "/stores/products",
   },
 ] as const;
 
-export const STORE = [
+export const SHOP = [
   {
     name: "홈",
     path: "/",
@@ -48,7 +48,7 @@ export const DEVELOP = [
 
 export const NAVIGATION = {
   ADMIN,
-  FRANCHISE,
   STORE,
+  SHOP,
   DEVELOP,
 } as const;
