@@ -9,6 +9,8 @@ const buttonTheme = createTheme({
 
           boxShadow: "none",
 
+          textTransform: "none",
+
           "&:hover": {
             boxShadow: "none",
           },
