@@ -15,6 +15,8 @@ const textFieldTheme = createTheme({
 
             "& .MuiInputBase-input": {
               padding: "0 12px",
+              fontSize: "14px",
+              lineHeight: "32px",
             },
 
             "& .MuiOutlinedInput-notchedOutline": {
