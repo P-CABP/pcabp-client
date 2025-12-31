@@ -3,6 +3,7 @@ import { RouteObject } from "react-router";
 import DevGuard from "@/components/guards/DevGuard";
 import DevButtonPage from "@/pages/dev/button/DevButtonPage";
 import DevPage from "@/pages/dev/DevPage";
+import DevInputPage from "@/pages/dev/input/DevInputPage";
 import DevPalettePage from "@/pages/dev/palette/DevPalettePage";
 import DevTypographyPage from "@/pages/dev/typography/DevTypographyPage";
 import useModeStore from "@/stores/mode-store";
@@ -28,6 +29,10 @@ const DevRouter: RouteObject[] = [
       {
         path: "button",
         element: <DevButtonPage />,
+      },
+      {
+        path: "input",
+        element: <DevInputPage />,
       },
     ],
   },
