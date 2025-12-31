@@ -1,7 +1,16 @@
 import { Outlet } from "react-router";
 
+import useSession from "@/hooks/useSession";
+import SessionService from "@/services/session-service";
+
 const AdminGuard = () => {
-  // TODO : 관리자 권한이 있는 경우만 통과하고 아닌 경우 권한 없음 에러를 던지도록 설정
+  const { data: session } = SessionService.useSession();
+
+  const { isAdmin } = useSession(session);
+
+  if (!isAdmin) {
+    throw new Error("Unauthorized");
+  }
 
   return <Outlet />;
 };
