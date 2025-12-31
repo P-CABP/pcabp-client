@@ -11,6 +11,8 @@ const textFieldTheme = createTheme({
             width: "100%",
             height: "32px",
 
+            backgroundColor: theme.palette.grayscale.white,
+
             "& .MuiInputBase-input": {
               padding: "0 12px",
             },
