@@ -44,6 +44,10 @@ export const DEVELOP = [
     name: "Button",
     path: "/dev/button",
   },
+  {
+    name: "Input",
+    path: "/dev/input",
+  },
 ] as const;
 
 export const NAVIGATION = {
