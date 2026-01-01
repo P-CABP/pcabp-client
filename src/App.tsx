@@ -2,6 +2,7 @@ import { ThemeProvider } from "@mui/material";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router";
 
+import SystemToast from "@/components/modals/SystemToast";
 import queryClient from "@/helpers/query-client";
 import AppRouter from "@/routers/AppRouter";
 import theme from "@/themes/theme";
@@ -17,6 +18,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <RouterProvider router={AppRouter} />
+        <SystemToast />
       </ThemeProvider>
     </QueryClientProvider>
   );

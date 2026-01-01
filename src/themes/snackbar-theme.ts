@@ -4,7 +4,7 @@ const snackbarTheme = createTheme({
   components: {
     MuiSnackbar: {
       defaultProps: {
-        autoHideDuration: 5000,
+        autoHideDuration: 3000,
         anchorOrigin: {
           vertical: "top",
           horizontal: "center",
