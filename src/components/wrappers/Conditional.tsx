@@ -1,22 +1,19 @@
 import { createContext, ReactElement, ReactNode, useContext } from "react";
 
-import { Optional } from "@/types/common";
-
 type ConditionalValueType = string | number | boolean | undefined;
 
-const ConditionalContext =
-  createContext<Optional<ConditionalValueType>>(undefined);
+const ConditionalContext = createContext<ConditionalValueType[]>([]);
 
 interface ConditionalProps {
-  condition: ConditionalValueType;
+  conditions: ConditionalValueType[];
   children:
     | ReactElement<typeof ConditionalValue>
     | ReactElement<typeof ConditionalValue>[];
 }
 
-const Conditional = ({ condition, children }: ConditionalProps) => {
+const Conditional = ({ conditions, children }: ConditionalProps) => {
   return (
-    <ConditionalContext.Provider value={condition}>
+    <ConditionalContext.Provider value={conditions}>
       {children}
     </ConditionalContext.Provider>
   );
@@ -28,8 +25,11 @@ interface ConditionalValueProps {
 }
 
 const ConditionalValue = ({ value, children }: ConditionalValueProps) => {
-  const condition = useContext(ConditionalContext);
-  return <>{condition === value && children}</>;
+  const conditions = useContext(ConditionalContext);
+
+  const render = conditions.includes(value);
+
+  return <>{render && children}</>;
 };
 
 Conditional.Value = ConditionalValue;
