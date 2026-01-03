@@ -58,7 +58,8 @@ const dialogTheme = createTheme({
     MuiDialogContent: {
       styleOverrides: {
         root: {
-          padding: "20px 0",
+          padding: "10px 0",
+          paddingTop: "10px !important",
         },
       },
     },

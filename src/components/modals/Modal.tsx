@@ -45,7 +45,7 @@ const Modal = ({
     <Dialog open={open} size={size} onClose={handleClose}>
       <DialogTitle>
         <Flex width="100%" justifyContent="space-between" alignItems="center">
-          <Typography className="" size="30xl" weight="bold">
+          <Typography size="20xl" weight="bold">
             {title}
           </Typography>
           <IconButton sx={{ border: "none" }} onClick={handleClose}>
