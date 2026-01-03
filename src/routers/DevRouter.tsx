@@ -5,6 +5,7 @@ import DevButtonPage from "@/pages/dev/button/DevButtonPage";
 import DevPage from "@/pages/dev/DevPage";
 import DevInputPage from "@/pages/dev/input/DevInputPage";
 import DevPalettePage from "@/pages/dev/palette/DevPalettePage";
+import DevSystemPage from "@/pages/dev/system/DevSystemPage";
 import DevTypographyPage from "@/pages/dev/typography/DevTypographyPage";
 import useModeStore from "@/stores/mode-store";
 
@@ -33,6 +34,10 @@ const DevRouter: RouteObject[] = [
       {
         path: "input",
         element: <DevInputPage />,
+      },
+      {
+        path: "system",
+        element: <DevSystemPage />,
       },
     ],
   },

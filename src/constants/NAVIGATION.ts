@@ -48,6 +48,10 @@ export const DEVELOP = [
     name: "Input",
     path: "/dev/input",
   },
+  {
+    name: "System",
+    path: "/dev/system",
+  },
 ] as const;
 
 export const NAVIGATION = {
