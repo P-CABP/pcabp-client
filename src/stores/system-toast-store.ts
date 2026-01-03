@@ -1,14 +1,14 @@
 import { create } from "zustand";
 
-export type MessageType = "info" | "success" | "error";
+export type SystemToastMessageType = "info" | "success" | "error";
 
 type SystemToastStore = {
-  type: MessageType;
+  type: SystemToastMessageType;
   opened: boolean;
   message: string;
   confirm?: boolean;
   open: (props: {
-    type: MessageType;
+    type: SystemToastMessageType;
     message: string;
     confirm?: boolean;
   }) => void;
