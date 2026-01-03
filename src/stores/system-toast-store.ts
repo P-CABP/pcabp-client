@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 export type MessageType = "info" | "success" | "error";
 
-type SystemStore = {
+type SystemToastStore = {
   type: MessageType;
   opened: boolean;
   message: string;
@@ -15,7 +15,7 @@ type SystemStore = {
   close: () => void;
 };
 
-const useSystemToastStore = create<SystemStore>((set) => ({
+const useSystemToastStore = create<SystemToastStore>((set) => ({
   type: "info",
   opened: false,
   duration: 3000,
