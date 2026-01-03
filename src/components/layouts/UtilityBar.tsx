@@ -1,6 +1,6 @@
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import { Divider, styled, Typography } from "@mui/material";
+import { styled, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
 
@@ -55,7 +55,6 @@ const UtilityBar = () => {
       </Flex>
       <Flex alignItems="center" columnGap={2}>
         <SystemActionBar />
-        <StyledDivider orientation="vertical" flexItem />
         <IconTextButton
           text={t("common.label.title.HOME")}
           size="large"
@@ -70,7 +69,6 @@ const UtilityBar = () => {
         >
           <PersonOutlineOutlinedIcon fontSize="large" />
         </IconTextButton>
-        <StyledDivider orientation="vertical" flexItem />
         <AuthenticationActionBar />
       </Flex>
     </StyledSearchBar>
@@ -89,14 +87,6 @@ const StyledSearchBar = styled(Flex)`
 
 const StyledTitle = styled(Typography)`
   color: ${({ theme }) => theme.palette.main.primary};
-`;
-
-const StyledDivider = styled(Divider)`
-  height: 32px;
-
-  align-self: center;
-
-  border-right: 1.5px solid ${({ theme }) => theme.palette.grayscale.gray700_C2};
 `;
 
 export default UtilityBar;
