@@ -20,7 +20,7 @@ const Conditional = ({ conditions, children }: ConditionalProps) => {
 };
 
 interface ConditionalValueProps {
-  value?: ConditionalValueType;
+  value: ConditionalValueType;
   children: ReactNode;
 }
 
