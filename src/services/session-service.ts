@@ -1,18 +1,24 @@
 import useAction from "@/hooks/useAction";
 import useFetch from "@/hooks/useFetch";
-import { SessionUser } from "@/models/user-model";
+import { SessionLogin, SessionUser } from "@/models/user-model";
 import { Nullable } from "@/types/common";
 
 const SessionService = {
   useSession: () => {
     return useFetch<Nullable<SessionUser>>({
-      url: "/v1/user/session",
+      url: "/v1/session",
     });
   },
   useLogin: () => {
-    return useAction<{ username: string; password: string }>({
+    return useAction<SessionLogin, SessionUser>({
       url: `/login`,
       method: "post",
+    });
+  },
+  useLogout: () => {
+    return useAction<void>({
+      url: "/v1/session",
+      method: "delete",
     });
   },
 };

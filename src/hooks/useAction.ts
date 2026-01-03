@@ -4,6 +4,8 @@ import { AxiosError, AxiosResponse } from "axios";
 import QueryClient from "@/helpers/query-client";
 import restService from "@/helpers/rest-service";
 import { RestResponse } from "@/models/rest-model";
+import { useAlert } from "@/stores/system-modal-store";
+import { useToast } from "@/stores/system-toast-store";
 
 type HttpMethod = "post" | "put" | "patch" | "delete";
 
@@ -17,13 +19,20 @@ export interface UseActionConfig<TVariables, TData> extends Omit<
 > {
   url: string;
   method?: HttpMethod;
+  showError?: boolean;
+  showErrorType?: "toast" | "modal";
 }
 
 const useAction = <TVariables = unknown, TData = unknown>({
   url,
   method = "post",
+  showError = true,
+  showErrorType = "toast",
   ...configs
 }: UseActionConfig<TVariables, TData>) => {
+  const toast = useToast();
+  const alert = useAlert();
+
   const queryKey = url.split("/");
 
   const mutationFn = (variables: TVariables) => {
@@ -52,15 +61,22 @@ const useAction = <TVariables = unknown, TData = unknown>({
     onSuccess: () => {
       QueryClient.invalidateQueries({ queryKey });
     },
-    onError: () => {
-      // TODO : Handle error message with i18n
-      const errorMessage = "Error Message";
+    onError: (error) => {
+      const errorMessage = error.response?.data.data;
 
-      // TODO : Handle error message with custom alert modal
-      alert({
-        type: "error",
-        message: errorMessage,
-      });
+      if (!showError) return;
+
+      if (showErrorType === "toast") {
+        toast({
+          type: "error",
+          message: errorMessage || "Unknown error",
+        });
+      } else if (showErrorType === "modal") {
+        alert({
+          type: "error",
+          message: errorMessage || "Unknown error",
+        });
+      }
     },
     ...configs,
   });

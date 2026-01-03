@@ -15,5 +15,8 @@
       "CLOSE": "닫기",
       "CONFIRM": "확인"
     }
+  },
+  "message": {
+    "REQUIRED_VALUE": "{{value}}은(는) 필수값입니다."
   }
 }

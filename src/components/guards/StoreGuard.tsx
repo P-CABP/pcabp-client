@@ -3,16 +3,16 @@ import { Outlet } from "react-router";
 import useSession from "@/hooks/useSession";
 import SessionService from "@/services/session-service";
 
-const DevGuard = () => {
+const StoreGuard = () => {
   const { data: session } = SessionService.useSession();
 
-  const { isDeveloper } = useSession(session);
+  const { isManager } = useSession(session);
 
-  if (!isDeveloper) {
+  if (!isManager) {
     throw new Error("Unauthorized");
   }
 
   return <Outlet />;
 };
 
-export default DevGuard;
+export default StoreGuard;
