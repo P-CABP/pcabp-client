@@ -33,8 +33,8 @@ const SystemActionBar = () => {
   };
 
   return (
-    <Conditional conditions={session?.authorities}>
-      <Conditional.Activity active={Authority.ADMIN}>
+    <Conditional.Provider conditions={session?.authorities}>
+      <Conditional condition={Authority.ADMIN}>
         <IconTextButton
           text={t("common.label.title.ADMIN")}
           size="large"
@@ -42,8 +42,8 @@ const SystemActionBar = () => {
         >
           <AdminPanelSettingsOutlined fontSize="large" />
         </IconTextButton>
-      </Conditional.Activity>
-      <Conditional.Activity active={Authority.MANAGER}>
+      </Conditional>
+      <Conditional condition={Authority.MANAGER}>
         <IconTextButton
           text={t("common.label.title.STORE")}
           size="large"
@@ -51,8 +51,8 @@ const SystemActionBar = () => {
         >
           <Storefront fontSize="large" />
         </IconTextButton>
-      </Conditional.Activity>
-      <Conditional.Activity active={Authority.DEVELOPER}>
+      </Conditional>
+      <Conditional condition={Authority.DEVELOPER}>
         <IconTextButton
           text={t("common.label.title.DEVELOP")}
           size="large"
@@ -60,8 +60,8 @@ const SystemActionBar = () => {
         >
           <Code fontSize="large" />
         </IconTextButton>
-      </Conditional.Activity>
-    </Conditional>
+      </Conditional>
+    </Conditional.Provider>
   );
 };
 

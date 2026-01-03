@@ -32,7 +32,7 @@ const UserActionBar = () => {
       >
         <HomeOutlined fontSize="large" />
       </IconTextButton>
-      <Conditional.Activity active={isAuthenticated}>
+      <Conditional active={isAuthenticated}>
         <IconTextButton
           text={t("common.label.title.USER")}
           size="large"
@@ -40,7 +40,7 @@ const UserActionBar = () => {
         >
           <PersonOutlineOutlined fontSize="large" />
         </IconTextButton>
-      </Conditional.Activity>
+      </Conditional>
     </>
   );
 };

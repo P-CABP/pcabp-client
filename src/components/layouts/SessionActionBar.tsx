@@ -27,7 +27,7 @@ const SessionActionBar = () => {
 
   return (
     <>
-      <Conditional.Activity active={isAuthenticated}>
+      <Conditional active={isAuthenticated}>
         <IconTextButton
           text={t("common.label.action.LOGOUT")}
           size="large"
@@ -35,8 +35,8 @@ const SessionActionBar = () => {
         >
           <LockOutlinedIcon fontSize="large" />
         </IconTextButton>
-      </Conditional.Activity>
-      <Conditional.Activity active={!isAuthenticated}>
+      </Conditional>
+      <Conditional active={!isAuthenticated}>
         <IconTextButton
           text={t("common.label.action.LOGIN")}
           size="large"
@@ -44,7 +44,7 @@ const SessionActionBar = () => {
         >
           <LockOpenIcon fontSize="large" />
         </IconTextButton>
-      </Conditional.Activity>
+      </Conditional>
     </>
   );
 };
