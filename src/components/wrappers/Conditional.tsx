@@ -5,15 +5,17 @@ type ConditionalValueType = string | number | boolean | undefined;
 const ConditionalContext = createContext<ConditionalValueType[]>([]);
 
 interface ConditionalProps {
-  conditions: ConditionalValueType[];
+  conditions?: ConditionalValueType[];
   children:
     | ReactElement<typeof ConditionalValue>
     | ReactElement<typeof ConditionalValue>[];
 }
 
 const Conditional = ({ conditions, children }: ConditionalProps) => {
+  const conditionalValue = conditions ?? [true];
+
   return (
-    <ConditionalContext.Provider value={conditions}>
+    <ConditionalContext.Provider value={conditionalValue}>
       {children}
     </ConditionalContext.Provider>
   );

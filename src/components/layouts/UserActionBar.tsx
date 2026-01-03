@@ -24,7 +24,7 @@ const UserActionBar = () => {
   };
 
   return (
-    <Conditional conditions={[true]}>
+    <Conditional>
       <IconTextButton
         text={t("common.label.title.HOME")}
         size="large"

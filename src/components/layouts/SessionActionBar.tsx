@@ -26,8 +26,8 @@ const SessionActionBar = () => {
   };
 
   return (
-    <Conditional conditions={[isAuthenticated]}>
-      <Conditional.Value value={true}>
+    <Conditional>
+      <Conditional.Value value={isAuthenticated}>
         <IconTextButton
           text={t("common.label.action.LOGOUT")}
           size="large"
@@ -36,7 +36,7 @@ const SessionActionBar = () => {
           <LockOutlinedIcon fontSize="large" />
         </IconTextButton>
       </Conditional.Value>
-      <Conditional.Value value={false}>
+      <Conditional.Value value={!isAuthenticated}>
         <IconTextButton
           text={t("common.label.action.LOGIN")}
           size="large"
