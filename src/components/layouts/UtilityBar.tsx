@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import MainSearchBox from "@/components/forms/MainSearchBox";
 import LogoIcon from "@/components/icons/LogoIcon";
-import AuthenticationActionBar from "@/components/layouts/AuthenticationActionBar";
+import SessionActionBar from "@/components/layouts/SessionActionBar";
 import SystemActionBar from "@/components/layouts/SystemActionBar";
 import UserActionBar from "@/components/layouts/UserActionBar";
 import Flex from "@/components/wrappers/Flex";
@@ -35,7 +35,7 @@ const UtilityBar = () => {
       <Flex alignItems="center" columnGap={2}>
         <SystemActionBar />
         <UserActionBar />
-        <AuthenticationActionBar />
+        <SessionActionBar />
       </Flex>
     </StyledSearchBar>
   );

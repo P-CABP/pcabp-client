@@ -8,7 +8,7 @@ import Conditional from "@/components/wrappers/Conditional";
 import useSession from "@/hooks/useSession";
 import SessionService from "@/services/session-service";
 
-const AuthenticationActionBar = () => {
+const SessionActionBar = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -49,4 +49,4 @@ const AuthenticationActionBar = () => {
   );
 };
 
-export default AuthenticationActionBar;
+export default SessionActionBar;
