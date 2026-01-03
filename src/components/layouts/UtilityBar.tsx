@@ -1,8 +1,5 @@
-import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
-import CodeIcon from "@mui/icons-material/Code";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import StorefrontIcon from "@mui/icons-material/Storefront";
 import { Divider, styled, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router";
@@ -11,6 +8,7 @@ import IconTextButton from "@/components/buttons/IconTextButton";
 import MainSearchBox from "@/components/forms/MainSearchBox";
 import LogoIcon from "@/components/icons/LogoIcon";
 import AuthenticationActionBar from "@/components/layouts/AuthenticationActionBar";
+import SystemActionBar from "@/components/layouts/SystemActionBar";
 import Flex from "@/components/wrappers/Flex";
 import { Mode, useMode } from "@/stores/mode-store";
 
@@ -56,27 +54,7 @@ const UtilityBar = () => {
         <MainSearchBox />
       </Flex>
       <Flex alignItems="center" columnGap={2}>
-        <IconTextButton
-          text={t("common.label.title.ADMIN")}
-          size="large"
-          onClick={() => handleModeNavigate("ADMIN")}
-        >
-          <AdminPanelSettingsOutlinedIcon fontSize="large" />
-        </IconTextButton>
-        <IconTextButton
-          text={t("common.label.title.STORE")}
-          size="large"
-          onClick={() => handleModeNavigate("STORE")}
-        >
-          <StorefrontIcon fontSize="large" />
-        </IconTextButton>
-        <IconTextButton
-          text={t("common.label.title.DEVELOP")}
-          size="large"
-          onClick={() => handleModeNavigate("DEVELOP")}
-        >
-          <CodeIcon fontSize="large" />
-        </IconTextButton>
+        <SystemActionBar />
         <StyledDivider orientation="vertical" flexItem />
         <IconTextButton
           text={t("common.label.title.HOME")}
