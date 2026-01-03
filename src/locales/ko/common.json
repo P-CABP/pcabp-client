@@ -6,11 +6,14 @@
       "SHOP": "쇼핑몰",
       "DEVELOP": "개발",
       "HOME": "홈",
-      "USER": "사용자"
+      "USER": "사용자",
+      "ALERT": "알림"
     },
     "action": {
       "LOGIN": "로그인",
-      "LOGOUT": "로그아웃"
+      "LOGOUT": "로그아웃",
+      "CLOSE": "닫기",
+      "CONFIRM": "확인"
     }
   }
 }
