@@ -30,7 +30,7 @@ const SystemModal = () => {
       open={opened}
       title={t("common.label.title.ALERT")}
       size="small"
-      onClose={() => {}}
+      onClose={handleClose}
     >
       <Modal.Content>
         <Flex columnGap={2}>
