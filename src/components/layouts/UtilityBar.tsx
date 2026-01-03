@@ -1,8 +1,6 @@
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import CodeIcon from "@mui/icons-material/Code";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import { Divider, styled, Typography } from "@mui/material";
@@ -12,6 +10,7 @@ import { useNavigate } from "react-router";
 import IconTextButton from "@/components/buttons/IconTextButton";
 import MainSearchBox from "@/components/forms/MainSearchBox";
 import LogoIcon from "@/components/icons/LogoIcon";
+import AuthenticationActionBar from "@/components/layouts/AuthenticationActionBar";
 import Flex from "@/components/wrappers/Flex";
 import { Mode, useMode } from "@/stores/mode-store";
 
@@ -94,20 +93,7 @@ const UtilityBar = () => {
           <PersonOutlineOutlinedIcon fontSize="large" />
         </IconTextButton>
         <StyledDivider orientation="vertical" flexItem />
-        <IconTextButton
-          text={t("common.label.action.LOGIN")}
-          size="large"
-          onClick={() => {}}
-        >
-          <LockOpenIcon fontSize="large" />
-        </IconTextButton>
-        <IconTextButton
-          text={t("common.label.action.LOGOUT")}
-          size="large"
-          onClick={() => {}}
-        >
-          <LockOutlinedIcon fontSize="large" />
-        </IconTextButton>
+        <AuthenticationActionBar />
       </Flex>
     </StyledSearchBar>
   );
