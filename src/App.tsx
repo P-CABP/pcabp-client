@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@mui/material";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { RouterProvider } from "react-router";
 
 import SystemModal from "@/components/modals/SystemModal";
@@ -22,6 +23,7 @@ const App = () => {
         <SystemToast />
         <SystemModal />
       </ThemeProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 };
