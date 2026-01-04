@@ -38,7 +38,7 @@ const ConditionalProvider = ({
   const conditionalValue = conditions;
 
   return (
-    <ConditionalContext.Provider value={conditionalValue}>
+    <ConditionalContext.Provider value={conditionalValue ?? []}>
       {children}
     </ConditionalContext.Provider>
   );
