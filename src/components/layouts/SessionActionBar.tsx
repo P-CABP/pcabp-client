@@ -18,7 +18,11 @@ const SessionActionBar = () => {
   const { isAuthenticated } = useSession(session);
 
   const handleLogout = () => {
-    logout();
+    logout(undefined, {
+      onSuccess: () => {
+        navigate("/");
+      },
+    });
   };
 
   const handleLogin = () => {
