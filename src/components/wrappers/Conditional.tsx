@@ -1,5 +1,8 @@
 import { createContext, ReactNode, useContext } from "react";
 
+import { useTranslation } from "react-i18next";
+
+import DevelopError from "@/errors/develop-error";
 import { Optional } from "@/types/common";
 
 type ConditionalValueType = string | number | boolean | undefined;
@@ -11,11 +14,14 @@ interface ConditionalProps {
 }
 
 const Conditional = ({ condition, active, children }: ConditionalProps) => {
+  const { t } = useTranslation();
+
   const conditions = useContext(ConditionalContext);
 
   if (conditions === undefined && active === undefined) {
-    // TODO : Error Boundary 처리
-    throw new Error("condition or active is required");
+    throw new DevelopError(
+      t("develop.message.INVALID_CONDITIONAL_COMPONENT_CONFIGURATION"),
+    );
   }
 
   const render = conditions?.includes(condition) ?? active === true;

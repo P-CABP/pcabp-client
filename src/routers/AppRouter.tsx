@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 
 import GlobalLayout from "@/components/layouts/GlobalLayout";
 import Layout from "@/components/layouts/Layout";
+import ErrorPage from "@/pages/error/ErrorPage";
 import LoginPage from "@/pages/login/LoginPage";
 import AdminRouter from "@/routers/AdminRouter";
 import DevRouter from "@/routers/DevRouter";
@@ -10,8 +11,8 @@ import StoreRouter from "@/routers/StoreRouter";
 
 const AppRouter = createBrowserRouter([
   {
-    // TODO : Error Boundary 추가
     element: <GlobalLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "login",

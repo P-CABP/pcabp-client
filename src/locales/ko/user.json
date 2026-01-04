@@ -2,5 +2,8 @@
   "label": {
     "USERNAME": "사용자명",
     "PASSWORD": "비밀번호"
+  },
+  "message": {
+    "UNAUTHORIZED": "권한이 없습니다."
   }
 }
