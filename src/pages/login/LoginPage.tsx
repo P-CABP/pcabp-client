@@ -61,6 +61,7 @@ const LoginPage = () => {
             name="username"
             renderProps={{
               placeholder: t("user.label.USERNAME"),
+              autoComplete: "username",
             }}
           />
           <InputField
@@ -68,6 +69,7 @@ const LoginPage = () => {
             renderProps={{
               type: "password",
               placeholder: t("user.label.PASSWORD"),
+              autoComplete: "current-password",
             }}
           />
           <Button type="submit" variant="contained" fullWidth>
