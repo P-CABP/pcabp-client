@@ -3,21 +3,24 @@ import useFetch from "@/hooks/useFetch";
 import { SessionLogin, SessionUser } from "@/models/user-model";
 import { Nullable } from "@/types/common";
 
+const BASE_URL = "/v1/session";
+
 const SessionService = {
   useSession: () => {
     return useFetch<Nullable<SessionUser>>({
-      url: "/v1/session",
+      url: BASE_URL,
     });
   },
   useLogin: () => {
     return useAction<SessionLogin, SessionUser>({
-      url: `/login`,
+      url: "login",
       method: "post",
+      invalidateUrl: BASE_URL,
     });
   },
   useLogout: () => {
     return useAction<void>({
-      url: "/v1/session",
+      url: BASE_URL,
       method: "delete",
     });
   },

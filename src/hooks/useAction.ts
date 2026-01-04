@@ -21,6 +21,7 @@ export interface UseActionConfig<TVariables, TData> extends Omit<
   method?: HttpMethod;
   showError?: boolean;
   showErrorType?: "toast" | "modal";
+  invalidateUrl?: string;
 }
 
 const useAction = <TVariables = unknown, TData = unknown>({
@@ -28,13 +29,18 @@ const useAction = <TVariables = unknown, TData = unknown>({
   method = "post",
   showError = true,
   showErrorType = "toast",
+  invalidateUrl,
   ...configs
 }: UseActionConfig<TVariables, TData>) => {
   const toast = useToast();
   const alert = useAlert();
 
-  const queryKey = url.split("/");
-  queryKey.shift();
+  const queryKey = (() => {
+    const targetUrl = invalidateUrl || url;
+    const splittedUrl = targetUrl.split("/");
+    splittedUrl.shift();
+    return splittedUrl;
+  })();
 
   const mutationFn = (variables: TVariables) => {
     switch (method) {
