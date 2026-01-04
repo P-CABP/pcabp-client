@@ -1,9 +1,11 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { AxiosError, AxiosResponse } from "axios";
 
-import QueryClient from "@/helpers/query-client";
+import queryClient from "@/helpers/query-client";
 import restService from "@/helpers/rest-service";
 import { RestResponse } from "@/models/rest-model";
+import { useAlert } from "@/stores/system-modal-store";
+import { useToast } from "@/stores/system-toast-store";
 
 type HttpMethod = "post" | "put" | "patch" | "delete";
 
@@ -17,14 +19,28 @@ export interface UseActionConfig<TVariables, TData> extends Omit<
 > {
   url: string;
   method?: HttpMethod;
+  showError?: boolean;
+  showErrorType?: "toast" | "modal";
+  invalidateUrl?: string;
 }
 
 const useAction = <TVariables = unknown, TData = unknown>({
   url,
   method = "post",
+  showError = true,
+  showErrorType = "toast",
+  invalidateUrl,
   ...configs
 }: UseActionConfig<TVariables, TData>) => {
-  const queryKey = url.split("/");
+  const toast = useToast();
+  const alert = useAlert();
+
+  const queryKey = (() => {
+    const targetUrl = invalidateUrl || url;
+    const splittedUrl = targetUrl.split("/");
+    splittedUrl.shift();
+    return splittedUrl;
+  })();
 
   const mutationFn = (variables: TVariables) => {
     switch (method) {
@@ -50,17 +66,27 @@ const useAction = <TVariables = unknown, TData = unknown>({
   >({
     mutationFn,
     onSuccess: () => {
-      QueryClient.invalidateQueries({ queryKey });
-    },
-    onError: () => {
-      // TODO : Handle error message with i18n
-      const errorMessage = "Error Message";
-
-      // TODO : Handle error message with custom alert modal
-      alert({
-        type: "error",
-        message: errorMessage,
+      queryClient.invalidateQueries({
+        queryKey,
+        refetchType: "all",
       });
+    },
+    onError: (error) => {
+      const errorMessage = error.response?.data.data;
+
+      if (!showError) return;
+
+      if (showErrorType === "toast") {
+        toast({
+          type: "error",
+          message: errorMessage || "Unknown error",
+        });
+      } else if (showErrorType === "modal") {
+        alert({
+          type: "error",
+          message: errorMessage || "Unknown error",
+        });
+      }
     },
     ...configs,
   });

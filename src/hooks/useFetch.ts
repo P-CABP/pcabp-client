@@ -19,6 +19,7 @@ export interface UseFetchConfig<T> extends Omit<
 const useFetch = <T>({ url, params, ...configs }: UseFetchConfig<T>) => {
   const queryKey = (() => {
     const splittedUrl: unknown[] = url.split("/");
+    splittedUrl.shift();
 
     if (params) {
       splittedUrl.push({ ...params });

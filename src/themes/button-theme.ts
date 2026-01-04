@@ -68,6 +68,9 @@ const buttonTheme = createTheme({
 
           padding: "0 8px",
         },
+        fullWidth: {
+          width: "100%",
+        },
       },
     },
   },

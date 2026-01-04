@@ -8,15 +8,14 @@ const restService = axios.create({
 });
 
 restService.interceptors.response.use(
-  (response) => {
-    if (response.config.url === "/login" && response.config.method === "post") {
-      window.history.back();
-    }
-
-    return response;
-  },
+  (response) => response,
   (error) => {
-    if ([401, 403].includes(error.response?.status)) {
+    const currentUrl = new URL(window.location.href).pathname;
+
+    if (
+      [401, 403].includes(error.response?.status) &&
+      currentUrl !== `/login`
+    ) {
       window.location.href = "/login";
     }
 

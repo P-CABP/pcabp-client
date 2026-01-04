@@ -5,6 +5,7 @@ import { Button, Typography, useTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 import Modal from "@/components/modals/Modal";
+import Conditional from "@/components/wrappers/Conditional";
 import Flex from "@/components/wrappers/Flex";
 import useSystemModalStore from "@/stores/system-modal-store";
 
@@ -32,53 +33,55 @@ const SystemModal = () => {
       size="small"
       onClose={handleClose}
     >
-      <Modal.Content>
-        <Flex columnGap={2}>
-          {type === "confirm" && (
-            <TaskAltOutlinedIcon
-              fontSize="large"
-              sx={{
-                color: theme.palette.main.primary,
-              }}
-            />
-          )}
-          {type === "info" && (
-            <InfoOutlined
-              fontSize="large"
-              sx={{
-                color: theme.palette.main.primary,
-              }}
-            />
-          )}
-          {type === "success" && (
-            <CheckCircleOutlineOutlinedIcon
-              fontSize="large"
-              sx={{
-                color: theme.palette.semantic.success,
-              }}
-            />
-          )}
-          {type === "error" && (
-            <ErrorOutlineOutlined
-              fontSize="large"
-              sx={{
-                color: theme.palette.semantic.error,
-              }}
-            />
-          )}
-          <Typography>{message}</Typography>
-        </Flex>
-      </Modal.Content>
-      <Modal.Actions>
-        <Button variant="outlined" onClick={handleClose}>
-          {t("common.label.action.CLOSE")}
-        </Button>
-        {type === "confirm" && (
-          <Button variant="contained" onClick={handleConfirm}>
-            {t("common.label.action.CONFIRM")}
+      <Conditional.Provider conditions={[type]}>
+        <Modal.Content>
+          <Flex columnGap={2}>
+            <Conditional condition="confirm">
+              <TaskAltOutlinedIcon
+                fontSize="large"
+                sx={{
+                  color: theme.palette.main.primary,
+                }}
+              />
+            </Conditional>
+            <Conditional condition="info">
+              <InfoOutlined
+                fontSize="large"
+                sx={{
+                  color: theme.palette.main.primary,
+                }}
+              />
+            </Conditional>
+            <Conditional condition="success">
+              <CheckCircleOutlineOutlinedIcon
+                fontSize="large"
+                sx={{
+                  color: theme.palette.semantic.success,
+                }}
+              />
+            </Conditional>
+            <Conditional condition="error">
+              <ErrorOutlineOutlined
+                fontSize="large"
+                sx={{
+                  color: theme.palette.semantic.error,
+                }}
+              />
+            </Conditional>
+            <Typography>{message}</Typography>
+          </Flex>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button variant="outlined" onClick={handleClose}>
+            {t("common.label.action.CLOSE")}
           </Button>
-        )}
-      </Modal.Actions>
+          <Conditional condition="confirm">
+            <Button variant="contained" onClick={handleConfirm}>
+              {t("common.label.action.CONFIRM")}
+            </Button>
+          </Conditional>
+        </Modal.Actions>
+      </Conditional.Provider>
     </Modal>
   );
 };

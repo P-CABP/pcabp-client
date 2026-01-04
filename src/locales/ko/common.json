@@ -15,5 +15,9 @@
       "CLOSE": "닫기",
       "CONFIRM": "확인"
     }
+  },
+  "message": {
+    "ERROR_OCCURRED": "오류가 발생하였습니다.",
+    "REQUIRED_VALUE": "{{value}}은(는) 필수값입니다."
   }
 }
