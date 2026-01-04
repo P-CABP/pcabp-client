@@ -1,7 +1,7 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query";
 import { AxiosError, AxiosResponse } from "axios";
 
-import QueryClient from "@/helpers/query-client";
+import queryClient from "@/helpers/query-client";
 import restService from "@/helpers/rest-service";
 import { RestResponse } from "@/models/rest-model";
 import { useAlert } from "@/stores/system-modal-store";
@@ -34,6 +34,7 @@ const useAction = <TVariables = unknown, TData = unknown>({
   const alert = useAlert();
 
   const queryKey = url.split("/");
+  queryKey.shift();
 
   const mutationFn = (variables: TVariables) => {
     switch (method) {
@@ -59,7 +60,10 @@ const useAction = <TVariables = unknown, TData = unknown>({
   >({
     mutationFn,
     onSuccess: () => {
-      QueryClient.invalidateQueries({ queryKey });
+      queryClient.invalidateQueries({
+        queryKey,
+        refetchType: "all",
+      });
     },
     onError: (error) => {
       const errorMessage = error.response?.data.data;
